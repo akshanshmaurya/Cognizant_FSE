@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Playground - Community Event Portal</title>
+    <!-- Inline styles to demonstrate priority or testing layout rules (Exercise 1) -->
+    <style>
+        .inline-demo {
+            color: #fb7185;
+            font-weight: 600;
+        }
+        /* Fallback / internal CSS test */
+        .hero-banner {
+            height: 25vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    <!-- External stylesheet link (Exercise 1) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header styled using ID selector #mainHeader (Exercise 3) -->
+    <header id="mainHeader">
+        <h1>Event Portal</h1>
+        <ul class="nav-menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Event Cards</a></li>
+            <li><a href="#table-sec">Admin Table</a></li>
+            <li><a href="#columns">News Bulletin</a></li>
+            <li><a href="#comparison">Box Model &amp; Display</a></li>
+        </ul>
+    </header>
+
+    <main>
+        
+        <!-- Viewport unit demonstration hero banner -->
+        <div class="hero-banner" id="about">
+            <h2 style="border: none; margin-bottom: 0; color: white;">Explore, Learn, and Connect Locally</h2>
+        </div>
+
+        <!-- Exercise 3: Element selector H2 styling -->
+        <section>
+            <h2>Portal Features &amp; Selectors Playground</h2>
+            <p>This page demonstrates the power of CSS3 selectors, typography, tables, layouts, and responsive properties.</p>
+            <!-- Inline styling example (Exercise 1) -->
+            <p style="color: #f43f5e; margin-top: 0.5rem; font-style: italic;">
+                * This line uses inline styling to make this text red/pink for evaluation.
+            </p>
+        </section>
+
+        <!-- Exercise 3 & 8: Event Cards showcasing classes, margins, borders, and box model -->
+        <section id="events">
+            <h2>Upcoming Events Showcase</h2>
+            <div class="eventCard">
+                <h3>1. Interactive AI Workshop</h3>
+                <p>Learn how neural networks process complex textual and image inputs. Perfect for beginners and developers alike.</p>
+            </div>
+            <div class="eventCard">
+                <h3>2. Local Food &amp; Baking Carnival</h3>
+                <p>Taste the finest pastries and learn bread-making secrets from award-winning community chefs.</p>
+            </div>
+        </section>
+
+        <!-- Exercise 7: Table styling and zebra striping -->
+        <section id="table-sec">
+            <h2>Admin Events Manager</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Event Name</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>Tech Innovators Meetup</td>
+                        <td>New York</td>
+                        <td>Upcoming</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>AI &amp; ML Conference</td>
+                        <td>Chicago</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>Frontend Dev Bootcamp</td>
+                        <td>Los Angeles</td>
+                        <td>Upcoming</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>Baking &amp; Pastry Class</td>
+                        <td>Chicago</td>
+                        <td>Upcoming</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Exercise 9: Multiple Columns in Text -->
+        <section id="columns">
+            <h2>Community News Bulletin</h2>
+            <div class="news-article">
+                <h4>Local City Council Announces Green Initiative Funding</h4>
+                <p>
+                    The City Council is thrilled to announce a new grant cycle targeting sustainable community projects. Over $150,000 has been allocated for tree planting, community gardens, solar installations, and educational programs on ecology. Residents are encouraged to apply before August 15th to be considered.
+                </p>
+                <p>
+                    Workshops will be held at the library every Saturday to assist community organizers with drafting their applications. A panel of environmental scientists will provide direct feedback. We hope to see a wide range of creative and green-conscious project submissions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Exercise 8: Box Model & Display (display: none vs visibility: hidden) -->
+        <section id="comparison">
+            <h2>Box Model Controls &amp; Form Inputs</h2>
+            <div style="margin-bottom: 1.5rem;">
+                <label for="search" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Search Events (Outline Demo):</label>
+                <input type="text" id="search" class="search-input" placeholder="Type here to see blue focus outline...">
+            </div>
+
+            <h4>Visibility Comparison</h4>
+            <p>Observe how <code>visibility: hidden</code> leaves space in the layout, while <code>display: none</code> removes the element completely.</p>
+            
+            <div class="hidden-demo-container">
+                <div class="box">
+                    <h5>Box 1 (Visible)</h5>
+                    <p>Always visible reference element.</p>
+                </div>
+                
+                <!-- This element is hidden using display: none, so Box 3 will slide to its left -->
+                <div class="box disp-none">
+                    <h5>Box 2 (display: none)</h5>
+                    <p>You cannot see me, and I take up no layout space.</p>
+                </div>
+                
+                <div class="box">
+                    <h5>Box 3 (Visible)</h5>
+                    <p>Positioned right after Box 1 because Box 2 is display: none.</p>
+                </div>
+                
+                <!-- This element is hidden using visibility: hidden, so a blank space will remain -->
+                <div class="box vis-hidden">
+                    <h5>Box 4 (visibility: hidden)</h5>
+                    <p>I am hidden, but my physical space is still preserved.</p>
+                </div>
+                
+                <div class="box">
+                    <h5>Box 5 (Visible)</h5>
+                    <p>Keeps its layout position after the invisible Box 4.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; background-color: rgba(15, 23, 42, 0.9); border-top: 1px solid rgba(255,255,255,0.05); margin-top: 3rem;">
+        <p>&copy; 2026 CSS3 Styling Showcase. Designed for Responsive Viewports.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive JavaScript Event Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Font for sleek aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load jQuery for Exercise 14 animations -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Interactive Events Portal</h1>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">Pure ES6+ Client-side Logic Showcase</p>
+    </header>
+
+    <main>
+        
+        <!-- Registration Confirmation Banner (animated via jQuery) -->
+        <div id="registeredBanner" style="display: none; background: var(--success-color); color: white; padding: 1rem; border-radius: 0.5rem; text-align: center; font-weight: 600; margin-bottom: 1.5rem;">
+            Registration Successful!
+        </div>
+
+        <!-- Section: Filters and Controls -->
+        <section>
+            <h2>Search and Filter Events</h2>
+            <div class="controls-grid">
+                <input type="text" id="nameSearch" class="form-control" placeholder="Search by name (onkeyup key event)...">
+                
+                <select id="categoryFilter" class="form-control">
+                    <option value="all">All Categories</option>
+                    <option value="music">Music</option>
+                    <option value="workshop">Workshops</option>
+                    <option value="arts">Arts &amp; Crafts</option>
+                </select>
+
+                <button class="btn btn-secondary" onclick="showOnlyMusic()">Show Only Music (.filter())</button>
+            </div>
+            
+            <!-- Category Registration statistics summary via Object.entries() -->
+            <div id="summaryStats" class="summary-box">
+                <strong>Active Registrations by Category: </strong> No registrations yet.
+            </div>
+        </section>
+
+        <!-- Section: Events Display -->
+        <section>
+            <h2>Upcoming Events</h2>
+            <div id="loadingSpinner" class="spinner" style="display: none;"></div>
+            <div id="eventsGrid" class="events-container">
+                <!-- Injected via DOM Manipulation -->
+            </div>
+        </section>
+
+        <!-- Form: Add Event (Exercise 11) -->
+        <section>
+            <h2>Create a New Community Event</h2>
+            <form id="addEventForm" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="eventName">Event Name</label>
+                        <input type="text" name="eventName" id="eventName" class="form-control" style="width: 100%;" required>
+                        <div id="nameError" class="error-msg"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Date</label>
+                        <input type="date" name="eventDate" id="eventDate" class="form-control" style="width: 100%;" required>
+                        <div id="dateError" class="error-msg"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventCategory">Category</label>
+                        <select name="eventCategory" id="eventCategory" class="form-control" style="width: 100%;">
+                            <option value="music">Music</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="arts">Arts</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventSeats">Available Seats</label>
+                        <input type="number" name="eventSeats" id="eventSeats" class="form-control" style="width: 100%;" value="20" min="1">
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="margin-top: 1rem;">Create Event (.push())</button>
+            </form>
+        </section>
+
+        <!-- Form: Register User / Submit to Mock Server (Exercise 12) -->
+        <section>
+            <h2>Sign Up for Portal Membership</h2>
+            <form id="userRegistrationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" name="userName" id="userName" class="form-control" style="width: 100%;" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email Address</label>
+                        <input type="email" name="userEmail" id="userEmail" class="form-control" style="width: 100%;" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Register Membership (AJAX Fetch Simulate)</button>
+                <p id="formSubmitStatus" style="margin-top: 1rem; font-weight: 500;"></p>
+            </form>
+        </section>
+
+        <!-- Exercise 14: Benefit of framework (React/Vue) -->
+        <section style="background: rgba(99, 102, 241, 0.05); border-color: rgba(99, 102, 241, 0.2);">
+            <h2>Framework Architectural Note</h2>
+            <p style="font-size: 0.95rem;">
+                <strong>Exercise 14 Benefit:</strong> Moving to modern component frameworks like <strong>React</strong> or <strong>Vue</strong> provides declarative state management and a virtual DOM. This eliminates manual querySelector and createElement boilerplates, automatically keeping the UI perfectly synchronized with changes in data structure.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Custom implementation script -->
+    <script src="main.js"></script>
+</body>
+</html>

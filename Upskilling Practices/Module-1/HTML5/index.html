@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <!-- Internal CSS for styling the welcome banner uniquely (Exercise 3) -->
+    <style>
+        #welcomeBanner {
+            background-color: #1e3a8a; /* Blue background */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            text-align: center;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- SECTION: Navigation Header -->
+    <header>
+        <h1>City Council Event Portal</h1>
+        <nav>
+            <a href="#welcome">Home</a>
+            <a href="#events">Events</a>
+            <a href="#registration">Register</a>
+            <a href="#feedback">Feedback</a>
+            <a href="#videoInvite">Video Invite</a>
+            <a href="help.html" target="_blank">Help Center</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT SECTION -->
+    <main>
+        
+        <!-- Welcome Banner Section (Exercise 3) -->
+        <section id="welcome">
+            <div id="welcomeBanner">
+                <h2>Welcome to our Community Portal</h2>
+                <p>Helping residents register for events, check locations, and access basic services.</p>
+                <!-- Inline styled special offer span (Exercise 3) -->
+                <p class="highlight" style="margin-top: 1rem;">
+                    <span style="color: #f87171; font-weight: bold; text-transform: uppercase;">Special Offer:</span> 
+                    Register today and get early access to upcoming tech conferences!
+                </p>
+            </div>
+        </section>
+
+        <!-- Events Section / Image Gallery (Exercise 4 & 6) -->
+        <section id="events">
+            <h2>Upcoming Community Events</h2>
+            <p class="highlight">Tip: Double-click any image to view it in full screen.</p>
+            <table class="gallery-table">
+                <tr>
+                    <td>
+                        <img class="event-img" src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&auto=format&fit=crop" 
+                             alt="Tech Meetup Image" title="Tech Innovators Meetup" ondblclick="enlargeImage(this)">
+                        <h4>Tech Innovators Meetup</h4>
+                        <p>Explore emerging technology trends.</p>
+                    </td>
+                    <td>
+                        <img class="event-img" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&auto=format&fit=crop" 
+                             alt="AI Conference Image" title="AI & ML Conference" ondblclick="enlargeImage(this)">
+                        <h4>AI & ML Conference</h4>
+                        <p>Latest advancements in intelligence.</p>
+                    </td>
+                    <td>
+                        <img class="event-img" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=500&auto=format&fit=crop" 
+                             alt="Web Dev Bootcamp Image" title="Frontend Web Bootcamp" ondblclick="enlargeImage(this)">
+                        <h4>Web Dev Bootcamp</h4>
+                        <p>Hands-on CSS, JS, and HTML5.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="event-img" src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500&auto=format&fit=crop" 
+                             alt="Art Exhibition Image" title="Community Art Showcase" ondblclick="enlargeImage(this)">
+                        <h4>Community Art Showcase</h4>
+                        <p>Discover local paintings and sculptures.</p>
+                    </td>
+                    <td>
+                        <img class="event-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&auto=format&fit=crop" 
+                             alt="Baking Workshop Image" title="Pastry & Baking Class" ondblclick="enlargeImage(this)">
+                        <h4>Baking & Pastry Class</h4>
+                        <p>Bake delicious desserts from scratch.</p>
+                    </td>
+                    <td>
+                        <img class="event-img" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=500&auto=format&fit=crop" 
+                             alt="Nature Walk Image" title="Guided Eco Walk" ondblclick="enlargeImage(this)">
+                        <h4>Guided Eco Trail Walk</h4>
+                        <p>Explore nearby forest and botanical trails.</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Event Registration Form (Exercise 5, 6, 8) -->
+        <section id="registration">
+            <h2>Register for an Event</h2>
+            <form id="regForm" onsubmit="handleFormSubmit(event)" oninput="markFormDirty()">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <!-- Validate phone number on blur (Exercise 6) -->
+                    <input type="tel" id="phone" class="form-control" placeholder="10-digit number" onblur="validatePhoneNumber()">
+                    <div id="phoneError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Preferred Event Date</label>
+                    <input type="date" id="eventDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventType">Choose Event Category</label>
+                    <!-- Selection change saves preference & displays fee (Exercise 6 & 8) -->
+                    <select id="eventType" class="form-control" onchange="onEventTypeChange()" required>
+                        <option value="tech">Tech Meetups & Conferences</option>
+                        <option value="sports">Sports Tournaments</option>
+                        <option value="arts">Arts and Crafts</option>
+                        <option value="charity">Charity Runs</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <h5 id="eventFee" style="color: #60a5fa; margin-bottom: 1rem;">Selected Event Fee: $15.00</h5>
+                </div>
+                
+                <button type="submit">Submit Registration</button>
+                <button type="button" class="btn-secondary" onclick="clearPreferences()">Clear Preferences</button>
+            </form>
+
+            <!-- Output area for form submission confirmation (Exercise 5) -->
+            <output id="confirmationOutput" style="margin-top: 1.5rem; display: none;"></output>
+            <script>
+                // Show output when form compiles and submits
+                document.getElementById('regForm').addEventListener('submit', function() {
+                    document.getElementById('confirmationOutput').style.display = 'block';
+                });
+            </script>
+        </section>
+
+        <!-- Feedback & Event Handling Section (Exercise 6) -->
+        <section id="feedback">
+            <h2>Event Feedback</h2>
+            <div class="form-group">
+                <label for="feedbackText">Tell us about your experience</label>
+                <!-- Captures keypress events to count characters -->
+                <textarea id="feedbackText" class="form-control" rows="4" placeholder="Enter comments here..." onkeyup="countCharacters()"></textarea>
+                <div id="charCounter" style="text-align: right; color: var(--text-muted); font-size: 0.875rem; margin-top: 0.25rem;">Characters: 0</div>
+            </div>
+        </section>
+
+        <!-- Video Invite & Media Events (Exercise 7) -->
+        <section id="videoInvite">
+            <h2>Video Invite & Geolocation</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h4>Official Event Invite</h4>
+                    <p id="videoStatus" style="color: var(--text-muted); font-size: 0.875rem;">Loading video details...</p>
+                    <!-- Video tag with oncanplay event -->
+                    <video id="inviteVideo" controls oncanplay="handleVideoCanPlay()">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Geolocation Section (Exercise 9) -->
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 1rem;">
+                    <h4>Locate Nearby Events</h4>
+                    <p>Click the button below to determine your local coordinates and find the closest community events.</p>
+                    <button type="button" onclick="findNearbyEvents()">Find Nearby Events</button>
+                    <p id="geoStatus" style="margin-top: 1rem; color: #34d399; font-weight: 500;"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2026 City Council Event Portal. All rights reserved. | Labeled Sections: Navigation, Welcome, Events, Form, Media.</p>
+    </footer>
+
+    <!-- Fullscreen Double Click Image Modal (Exercise 6) -->
+    <div id="imgModal" class="modal-overlay" onclick="closeModal()">
+        <img id="modalImg" class="modal-img" src="" alt="">
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>

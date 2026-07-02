@@ -1,0 +1,11 @@
+# Ignore Java compiled files
+*.class
+bin/
+mods/
+
+# Ignore local database files created by JDBC tests
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db

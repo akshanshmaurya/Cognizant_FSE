@@ -1,0 +1,24 @@
+/* Custom Overrides for Bootstrap 5 Exercises */
+
+/*
+  Exercise 19 Mock SASS Customization:
+  If we were customizing via SASS, we would compile:
+  
+  $primary: #6366f1;
+  $border-radius-base: 0.5rem;
+  @import "bootstrap/scss/bootstrap";
+*/
+
+body {
+  background-color: #f8fafc;
+  padding-bottom: 70px; /* Space for fixed footer */
+}
+
+/* Custom CSS to simulate some spacing adjustments */
+.pricing-card {
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+}

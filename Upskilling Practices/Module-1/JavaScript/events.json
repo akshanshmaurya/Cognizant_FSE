@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Symphony in the Park",
+    "category": "music",
+    "date": "2026-07-15",
+    "seats": 50,
+    "description": "An evening of classical masterpieces under the stars."
+  },
+  {
+    "id": 2,
+    "name": "Rock & Blues Festival",
+    "category": "music",
+    "date": "2026-07-20",
+    "seats": 0,
+    "description": "High energy performances by local and national rock bands."
+  },
+  {
+    "id": 3,
+    "name": "Intro to Web Development",
+    "category": "workshop",
+    "date": "2026-07-25",
+    "seats": 25,
+    "description": "Hands-on introduction to building modern websites using HTML5 and CSS3."
+  },
+  {
+    "id": 4,
+    "name": "Community Paint & Sip",
+    "category": "arts",
+    "date": "2026-08-05",
+    "seats": 15,
+    "description": "Unwind with canvas painting, wine, and local artists."
+  },
+  {
+    "id": 5,
+    "name": "Jazz Night Live",
+    "category": "music",
+    "date": "2026-08-10",
+    "seats": 30,
+    "description": "Smooth tunes from international jazz trios."
+  }
+]

@@ -1,10 +1,10 @@
 # Ignore Java compiled files
 *.class
 bin/
+target/
 mods/
-
-# Ignore local database files created by JDBC tests
-*.db
+app.log
+students.db
 
 # OS files
 .DS_Store
